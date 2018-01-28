@@ -17,7 +17,7 @@ import java.util.List;
 
 public class DataBaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Quiz.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String TABLE = "question";
 
     public DataBaseManager( Context context){
@@ -26,7 +26,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String query = "Create table "+ TABLE +" ( id integer primary key autoincrement, title text, responseOne text, responseTwo text, responseThree text, responseFour text, theme text)";
+        String query = "Create table "+ TABLE +" ( id integer primary key autoincrement, title text, responseOne text, responseTwo text, responseThree text, responseFour text, theme text, goodResponse int)";
         db.execSQL(query);
         Log.i("DATABASE","Base de donnée crée");
     }
@@ -47,8 +47,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
         Log.i("DATABASE", "table purgée");
     }
 
-    public void insertData(String title, String responseOne,String responseTwo, String responseThree, String responseFour, String theme){
-        String query = "insert into "+TABLE+"(title,responseOne,responseTwo,responseThree,responseFour,theme) VALUES ('"+title+"','"+responseOne+"','"+responseTwo+"','"+responseThree+"','"+responseFour+"','"+theme+"')";
+    public void insertData(String title, String responseOne,String responseTwo, String responseThree, String responseFour, String theme, int goodResponse){
+        String query = "insert into "+TABLE+"(title,responseOne,responseTwo,responseThree,responseFour,theme,goodResponse) VALUES ('"+title+"','"+responseOne+"','"+responseTwo+"','"+responseThree+"','"+responseFour+"','"+theme+"',"+goodResponse+")";
         this.getWritableDatabase().execSQL(query);
         Log.i("DATABASE", "insert data");
     }
@@ -60,7 +60,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         cursor.moveToFirst();
         Log.i("DATABASE", "Select all");
         while(!cursor.isAfterLast()){
-            Question question = new Question(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getString(3),cursor.getString(4), cursor.getString(5),cursor.getString(6));
+            Question question = new Question(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getString(3),cursor.getString(4), cursor.getString(5),cursor.getString(6),cursor.getInt(7));
             questions.add(question);
             cursor.moveToNext();
 
@@ -69,10 +69,10 @@ public class DataBaseManager extends SQLiteOpenHelper {
     }
     public void insertDatasets(){
         //this.onReset(db);
-        this.insertData("test","test","test","test","test","test");
-        this.insertData("test2","test2","test2","test2","test2","test2");
-        this.insertData("test3","test3","test3","test3","test3","test3");
-        this.insertData("test4","test4","test4","test4","test4","test4");
+        this.insertData("test","test","test","test","test","test",1);
+        this.insertData("test2","test2","test2","test2","test2","test2",1);
+        this.insertData("test3","test3","test3","test3","test3","test3",1);
+        this.insertData("test4","test4","test4","test4","test4","test4",1);
 
 
     }

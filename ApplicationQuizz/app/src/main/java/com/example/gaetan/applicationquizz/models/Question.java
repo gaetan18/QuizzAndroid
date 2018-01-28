@@ -10,7 +10,7 @@ public class Question {
     private String responseOne;
     private String responseTwo;
 
-    public Question(int id, String title, String responseOne, String responseTwo, String responseThree, String responseFour, String theme) {
+    public Question(int id, String title, String responseOne, String responseTwo, String responseThree, String responseFour, String theme, int goodResponse) {
         this.id = id;
         this.title = title;
         this.responseOne = responseOne;
@@ -47,4 +47,7 @@ public class Question {
 
     public String getTheme(){return this.theme;}
     public void setTheme(String theme){this.theme = responseFour;}
+
+    public int getGoodResponse(){return this.goodResponse;}
+    public void setGoodResponse(int goodResponse){this.goodResponse = goodResponse;}
 }

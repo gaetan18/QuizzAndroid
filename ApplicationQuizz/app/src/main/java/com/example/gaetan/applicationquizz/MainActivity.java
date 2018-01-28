@@ -30,10 +30,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dbm = new DataBaseManager(this);
-        dbm.insertData();
+        dbm.purgeTable();
+        dbm.insertDatasets();
         List<Question> questions = dbm.selectAll();
-        for(Question question : questions){
-            Log.i("data", question.getTitle());
+        for(Question question : questions) {
+            Log.i("data", "getTitle : " + question.getTitle());
+            Log.i("data", "getResponseOne : " +question.getResponseOne());
+            Log.i("data", "getResponseTwo : " +question.getResponseTwo());
+            Log.i("data", "getResponseThree : " +question.getResponseThree());
+            Log.i("data", "getResponseFour : " +question.getResponseFour());
+            Log.i("data", "getTheme : " +question.getTheme());
+            Log.i("data", "getGoodResponse : " +Integer.toString(question.getGoodResponse()));
+
         }
         dbm.close();
     }

@@ -32,16 +32,22 @@ public class DataBaseManager extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String query = "drop table " + TABLE;
         db.execSQL(query);
-        this.onCreate(db);
         Log.i("DATABASE", "table mis a jour");
 
     }
+    public void purgeTable()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "delete from " + TABLE;
+        db.execSQL(query);
+        Log.i("DATABASE", "table purgée");
+    }
 
-    public void insertData(){
-        String query = "insert into "+TABLE+"(title, responseOne, responseTwo, responseThree, responseFour, theme, goodResponse) VALUES('test','test','test','test','test','test','1')";
+    public void insertData(String title, String responseOne,String responseTwo, String responseThree, String responseFour, String theme, int goodResponse){
+        String query = "insert into "+TABLE+"(title,responseOne,responseTwo,responseThree,responseFour,theme,goodResponse) VALUES ('"+title+"','"+responseOne+"','"+responseTwo+"','"+responseThree+"','"+responseFour+"','"+theme+"',"+goodResponse+")";
         this.getWritableDatabase().execSQL(query);
         Log.i("DATABASE", "insert data");
     }
@@ -59,6 +65,15 @@ public class DataBaseManager extends SQLiteOpenHelper {
 
         }
         return questions;
+    }
+    public void insertDatasets(){
+        //this.onReset(db);
+        this.insertData("test","test","test","test","test","test",1);
+        this.insertData("test2","test2","test2","test2","test2","test2",1);
+        this.insertData("test3","test3","test3","test3","test3","test3",1);
+        this.insertData("test4","test4","test4","test4","test4","test4",1);
+
+
     }
 
 

@@ -12,9 +12,6 @@ import com.example.gaetan.applicationquizz.models.Score;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by gilian on 27/01/2018.
- */
 
 public class DataBaseManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Quiz.db";

@@ -1,8 +1,5 @@
 package com.example.gaetan.applicationquizz.models;
 
-/**
- * Created by gilian on 28/01/2018.
- */
 
 public class Score {
     private int id;

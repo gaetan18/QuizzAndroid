@@ -100,10 +100,10 @@ public class FastActivity extends AppCompatActivity {
             }
         });
 
-        reponse3.setOnClickListener(new View.OnClickListener() {
+        reponse4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ReponseChoisie = reponse3.getText().toString();
+                String ReponseChoisie = reponse4.getText().toString();
                 if(ReponseChoisie.equals(GoodResponse)){
                     self.Datasets();
                     //Toast.makeText("Bonne Reponse");
@@ -112,8 +112,8 @@ public class FastActivity extends AppCompatActivity {
                 }
                 else{
                     finish();
-                    //Toast.makeText("Perdu :Mauvaise Reponse");
-                    Log.i("response", "Mauvaise Reponse");
+                    Toast.makeText(self,"Mauvaise Reponse",Toast.LENGTH_SHORT).show();
+                    //Log.i("response", "Mauvaise Reponse");
 
                     //Arreter Activitter
                 }

@@ -1,9 +1,5 @@
 package com.example.gaetan.applicationquizz.models;
 
-/**
- * Created by gilian on 27/01/2018.
- */
-
 public class Question {
     private int id;
     private String title;

@@ -29,8 +29,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button menu2 = findViewById(R.id.score);
+        menu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(intent);
+            }
+        });
+
         dbm = new DataBaseManager(this);
-        dbm.purgeTable();
+        dbm.purgeTableQuestion();
         dbm.insertDatasets();
+        dbm.insertScore(20);
+        Log.i("score",Integer.toString(dbm.selectAllScore().get(0).getScore()));
     }
 }

@@ -89,4 +89,28 @@
         app:layout_constraintTop_toBottomOf="@+id/titre"
         app:layout_constraintVertical_bias="0.649" />
 
+    <TextView
+        android:id="@+id/Score"
+        android:layout_width="70dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/titre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        tools:layout_editor_absoluteX="193dp" />
+
+    <TextView
+        android:id="@+id/BestScore"
+        android:layout_width="101dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Meilleur Score :"
+        app:layout_constraintBottom_toTopOf="@+id/titre"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="92dp" />
+
+
 </android.support.constraint.ConstraintLayout>

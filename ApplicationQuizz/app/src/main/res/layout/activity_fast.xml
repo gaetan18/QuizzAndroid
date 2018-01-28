@@ -24,7 +24,7 @@
 
 
     <Button
-        android:id="@+id/fastquizz"
+        android:id="@+id/response1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <Button
-        android:id="@+id/fastquizz"
+        android:id="@+id/response2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <Button
-        android:id="@+id/fastquizz"
+        android:id="@+id/response3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/fastquizz"
+        android:id="@+id/response4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -88,22 +88,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titre"
         app:layout_constraintVertical_bias="0.649" />
-
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="332dp"
-        android:background="@color/colorPrimary"
-        android:padding="20dp"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre" />
 
 </android.support.constraint.ConstraintLayout>

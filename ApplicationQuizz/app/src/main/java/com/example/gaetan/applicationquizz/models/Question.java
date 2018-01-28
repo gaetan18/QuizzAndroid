@@ -9,8 +9,12 @@ public class Question {
     private String title;
     private String responseOne;
     private String responseTwo;
+    private String responseThree;
+    private String responseFour;
+    private String theme;
+    private String goodResponse;
 
-    public Question(int id, String title, String responseOne, String responseTwo, String responseThree, String responseFour, String theme, int goodResponse) {
+    public Question(int id, String title, String responseOne, String responseTwo, String responseThree, String responseFour, String theme, String goodResponse) {
         this.id = id;
         this.title = title;
         this.responseOne = responseOne;
@@ -21,10 +25,7 @@ public class Question {
         this.goodResponse = goodResponse;
     }
 
-    private String responseThree;
-    private String responseFour;
-    private String theme;
-    private int goodResponse;
+
 
 
     public int getId(){return this.id;}
@@ -48,6 +49,6 @@ public class Question {
     public String getTheme(){return this.theme;}
     public void setTheme(String theme){this.theme = responseFour;}
 
-    public int getGoodResponse(){return this.goodResponse;}
-    public void setGoodResponse(int goodResponse){this.goodResponse = goodResponse;}
+    public String getGoodResponse(){return this.goodResponse;}
+    public void setGoodResponse(String goodResponse){this.goodResponse = goodResponse;}
 }

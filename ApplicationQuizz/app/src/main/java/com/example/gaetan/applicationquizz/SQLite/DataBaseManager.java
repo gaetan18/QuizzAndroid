@@ -10,6 +10,7 @@ import com.example.gaetan.applicationquizz.models.Question;
 import com.example.gaetan.applicationquizz.models.Score;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -27,7 +28,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         String query = "Create table "+ TABLE +" ( id integer primary key autoincrement, title text, responseOne text, responseTwo text, responseThree text, responseFour text, theme text, goodResponse String)";
         db.execSQL(query);
-        String queryS = "Create table "+ TABLE_S +" ( id integer primary key autoincrement, score integer)";
+        String queryS = "Create table "+ TABLE_S +" ( id integer primary key autoincrement, score integer, date date)";
         db.execSQL(queryS);
         Log.i("DATABASE","Base de donnée crée");
     }
@@ -55,8 +56,8 @@ public class DataBaseManager extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL(query);
         Log.i("DATABASE", "insert data");
     }
-    public void insertScore(int score){
-        String queryS = "insert into "+TABLE_S+"(score) VALUES ("+score+")";
+    public void insertScore(int score, Long date){
+        String queryS = "insert into "+TABLE_S+"(score, date) VALUES ("+score+","+date+")";
         this.getWritableDatabase().execSQL(queryS);
     }
 
@@ -82,7 +83,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         cursor.moveToFirst();
         Log.i("DATABASE", "Select all");
         while(!cursor.isAfterLast()){
-            Score score = new Score(cursor.getInt(0),cursor.getInt(1));
+            Score score = new Score(cursor.getInt(0),cursor.getInt(1), cursor.getLong(2));
             scores.add(score);
             cursor.moveToNext();
 

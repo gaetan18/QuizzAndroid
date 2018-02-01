@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.example.gaetan.applicationquizz.SQLite.DataBaseManager;
 import com.example.gaetan.applicationquizz.models.Score;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -31,8 +34,9 @@ public class TableauScore extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private DataBaseManager dbm = new DataBaseManager(this.getContext());
+    private DataBaseManager dbm;
     private ListView imgV;
+    private List<Score> scores;
 
 
 
@@ -68,15 +72,9 @@ public class TableauScore extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            imgV = (ListView) getView().findViewById(R.id.listView);
+
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            List<Score> scores = dbm.selectAllScore();
-            ArrayAdapter<Score> adapter = new ArrayAdapter<Score>(imgV.getContext(),android.R.layout.simple_list_item_1,scores);
-            imgV.setAdapter(adapter);
-
-
-
     }
     }
 
@@ -84,6 +82,9 @@ public class TableauScore extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
+
         return inflater.inflate(R.layout.fragment_tableau_score, container, false);
     }
 
@@ -91,6 +92,20 @@ public class TableauScore extends Fragment {
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        this.dbm = new DataBaseManager(this.getContext());
+        imgV = (ListView) getView().findViewById(R.id.listView);
+        scores = dbm.selectAllScore();
+        Collections.sort(scores);
+        ArrayAdapter<Score> adapter = new ArrayAdapter<Score>(imgV.getContext(),android.R.layout.simple_list_item_1,scores);
+        imgV.setAdapter(adapter);
+        for( Score score  : scores ){
+            Log.i("Fragment", " "+ score.getScore());
         }
     }
 
@@ -110,6 +125,8 @@ public class TableauScore extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this

@@ -156,7 +156,7 @@ public class FastActivity extends AppCompatActivity {
             questions.get(this.page).getGoodResponse();
             this.page++;
         }else{
-            Toast.makeText(self,"Bravo tu as fini le jeux, C'etait dur ? :kappa: ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(self,"Bravo tu as fini le jeu.",Toast.LENGTH_SHORT).show();
             Long date = new Date().getTime();
             dbm.insertScore(self.score, date);
 

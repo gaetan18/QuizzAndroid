@@ -29,12 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="80dp"
         android:padding="20dp"
         android:text="reponse1"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -45,12 +46,13 @@
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="80dp"
         android:padding="20dp"
         android:text="reponse2"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toEndOf="@+id/response1"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <Button
@@ -64,12 +66,13 @@
         android:layout_marginTop="8dp"
         android:padding="20dp"
         android:text="reponse3"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/response1"
+        app:layout_constraintVertical_bias="0.72" />
 
     <Button
         android:id="@+id/response4"
@@ -82,12 +85,13 @@
         android:layout_marginTop="8dp"
         android:padding="20dp"
         android:text="reponse4"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.782"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre"
-        app:layout_constraintVertical_bias="0.649" />
+        app:layout_constraintHorizontal_bias="0.729"
+        app:layout_constraintStart_toEndOf="@+id/response3"
+        app:layout_constraintTop_toBottomOf="@+id/response2"
+        app:layout_constraintVertical_bias="0.298" />
 
     <TextView
         android:id="@+id/testscore"
